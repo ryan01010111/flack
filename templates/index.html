@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/static/favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="/static/main.css">
+
+    <title>Klack</title>
+</head>
+<body>
+
+    <!-- display name form -->
+    <!-- shown if user has no display name -->
+    <div id="signIn" style="display: none;">
+
+        <img id="brand-sign-in" src="/static/images/klack_logo.png" alt="logo" width="100px">
+        <h1>Sign in</h1>
+
+        <form id="signInForm">
+
+            <input id="requestedDisplayName" autocomplete="off" type="text" placeholder="Enter a display name">
+            <button type="submit">Connect</button>
+        
+        </form>
+    </div>
+
+    <main id="appContent" style="display: none;">
+
+        <div id="sidebar">
+
+            <img id="brand" src="/static/images/klack_logo.png" alt="logo" width="110px">
+            <h3 id="displayName"></h3>
+            
+            <h4 id="channelHeader">Channels</h4>
+            <!-- add channel -->
+            <button id="showAddChannelBtn" type="button">+</button>
+            
+            <form id="addChannelForm" style="display: none;">
+                <input id="newChannel" autocomplete="off" type="text" placeholder="Channel name">
+                <button id="addChannelBtn" type="submit">Add and join</button>
+            </form>
+
+            <!-- channel list -->
+            <ul id="channelList">
+                {% for name, msgs in channels.items() %}
+                    <li><a href="" data-channel="{{ name }}">{{ name }}</a></li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        <div id="chatWindow">
+
+            <div id="chatHeader">
+                <img id="logo-mobile" src="/static/favicon_io/android-chrome-192x192.png" alt="logo" width="40px">
+                <h2 id="currentChannel"></h2>
+                <button id="mobile-menu-btn" type="button">
+                    <div class="menu-button-bar"></div>
+                    <div class="menu-button-bar"></div>
+                    <div class="menu-button-bar"></div>
+                </button>
+            </div>
+
+            <div id="chatMessages">
+                <!-- messages here -->
+            </div>
+
+            <form id="chatBox">
+                <input id="message" autocomplete="off" type="text" placeholder="Type here">
+                <button id="showAttachmentBtn" type="button">
+                    <img src="/static/images/paperclip.svg" alt="attachment" width="20px">
+                </button>
+                <button id="sendBtn" type="submit">
+                    <img src="/static/images/paper-plane.svg" alt="send" width="20px">
+                </button>
+            </form>
+
+            <!-- file upload form -->
+            <div id="fileUploadContainer" style="display: none;">
+
+                <h1>Upload a file</h1>
+                <a id="cancelUpload" href="">cancel</a>
+
+                <form id="fileUploadForm" enctype="multipart/form-data">
+                    <input id="file-input" type="file" name="file">
+                    <br>
+
+                    <button type="submit">Upload</button>
+                </form>
+
+            </div>
+
+            <!-- elements for upload completion animation -->
+            <div id="upload-shape" class="run-animation"></div>
+
+            <svg id="upload-check-svg" class="run-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path id="upload-check" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095
+                    72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/>
+            </svg>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="/static/main.js"></script>
+    <script src="/static/upload.js"></script>
+
+</body>
+</html>
