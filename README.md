@@ -7,16 +7,16 @@ in real time, and users are free to switch between existing channels by selectin
 the sidebar (or menu, on mobile browsers). New users will be automatically connected to the #General
 channel upon sign-in.
 
-##### 1. Channels
--Channels can be created by any user, by clicking the add (+) button at the top of the "channels" section
+**1. Channels**
+- Channels can be created by any user, by clicking the add (+) button at the top of the "channels" section
 in the sidebar (or menu, on mobile browsers).
 
-##### 2. Messages
--Messages are specific to their respective channel.
--Message storage by the server is limited to 100 per channel.
+**2. Messages**
+- Messages are specific to their respective channel.
+- Messages cached by the server are limited to 100 per channel.
 
-##### 3. File Uploads
--Klack also supports uploading files, which are automatically linked for access in a channel's chat
+**3. File Uploads**
+- Klack also supports uploading files, which are automatically linked for access in a channel's chat
 interface.
--To upload a file, click the attachment button (paperclip icon) in the bottom-right corner of the
+- To upload a file, click the attachment button (paperclip icon) in the bottom-right corner of the
 interface/chat-box.
